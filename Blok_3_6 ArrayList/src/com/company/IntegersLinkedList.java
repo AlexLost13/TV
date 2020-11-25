@@ -15,16 +15,16 @@ public class IntegersLinkedList {
     private Node last;
     private int count;
 
-    public IntegersLinkedList(){
+    public IntegersLinkedList() {
         this.count = 0;
     }
 
     public void add(int element) {
         Node newNode = new Node(element);
-        if(first == null){
+        if (first == null) {
             this.first = newNode;
             this.last = newNode;
-        }else {
+        } else {
 /*            Node current = first;
             while (current.getNext() != null){
                 current.getNext();
@@ -37,24 +37,36 @@ public class IntegersLinkedList {
         }
         this.count++;
     }
-    public void setIntersLinkedList(){
+
+    public void setIntersLinkedList() {
         Node current = first;
         while (current != null) {
             System.out.println(current.getValue());
             current = current.getNext();
         }
     }
-    public int get(int index){
+
+    public int get(int index) {
         Node current = first;
         int number = 0;
-        while (number != index -1) {
+        while (number != index - 1) {
             current = current.getNext();
             number++;
         }
         return current.getValue();
     }
 
-    public int indexOf(int index){
+    public void remove(int index) {
+        Node current = first;
+        int number = 0;
+        while (number != index - 2 && current != null) {
+            current = current.getNext();
+            number++;
+        }
+        current.setNext(current.getNext().getNext());
+    }
+
+    public int indexOf(int index) {
         // реализовать получение элемента
         int number = 1;
         Node current = first;
@@ -62,7 +74,7 @@ public class IntegersLinkedList {
         while (currentIndex.getValue() != current.getValue()) {
             current = current.getNext();
             number++;
-            }
+        }
         index = number;
         return index;
     }
