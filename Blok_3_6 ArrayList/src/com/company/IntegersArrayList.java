@@ -10,59 +10,69 @@ void remove(int index) - удаление элемента из списка п�
 void reverse() - разворот списка.
  */
 
-import java.util.Random;
-
 public class IntegersArrayList {
     private static final int DEFAULT_ARRAY_SIZE = 10;
 
-    private int elements[];
-
+    private int[] elements;
     private int count;
-    private int elemetsRevers[];
 
     public IntegersArrayList() {
-        this.elements = new int[DEFAULT_ARRAY_SIZE];
         this.count = 0;
-
+        this.elements = new int[DEFAULT_ARRAY_SIZE];
     }
 
     public void add(int element, int index) {
-        if (index < this.elements.length) {
+        if (count < this.elements.length) {
             this.elements[index] = element;
             count++;
         } else {
+            int newArray[] = new int[elements.length + (elements.length / 2)];
+            for (int j = 0; j < elements.length; j++){
+                newArray[j] = elements[j];
+            }
+            for(int i = index; i < newArray.length; i ++){
+                newArray[index] = element;
+            }
+            count++;
+            this.elements = newArray;
+            // если выходим за пределы массива, то надо создать новый уже увеличеный в 1.5 раза
+        } /*else {
             System.out.println("Array out of bounds");
-        }
+        }*/
+
     }
 
     public void remove(int index) {
-        elements[index] = 0;
+        int i = index;
+        for (; i < elements.length - 1; i++) {
+            int temp = 0;
+            temp = elements[i + 1];
+            elements[i + 1] = elements[i];
+            elements[i] = temp;
+        }
+        count--;
     }
 
     public void reverse() {
-        this.elemetsRevers = new int[DEFAULT_ARRAY_SIZE];
-        int temp = 0;
-        for (int i = 0; i < elements.length; i++) {
-            temp = elemetsRevers[i];
-            elemetsRevers[i] = elements[elements.length - i - 1];
-            elements[elements.length - i - 1] = temp;
-
+        int temp;
+        for (int i = 0; i < elements.length / 2; i++) {
+            temp = elements[elements.length - i - 1];
+            elements[elements.length  - i - 1] = elements[i];
+            elements[i] = temp;
         }
     }
+
     public void setElementsRevers() {
-        for (int i = 0; i < elemetsRevers.length; i++) {
-            System.out.println(elemetsRevers[i]);
+        for (int i = elements.length - count; i < elements.length; i++) {
+            System.out.println(elements[i]);
         }
     }
 
     public void setElements() {
-        for (int i = 0; i < elements.length; i++) {
+        for (int i = 0; i < count; i++) {
             System.out.println(elements[i]);
-
         }
     }
-
-
 
     /* public void add(int element) {
         if (count < this.elements.length) {
@@ -72,7 +82,6 @@ public class IntegersArrayList {
             System.out.println("Array out of bounds");
         }
     }
-
     public  int get(int index) {
         if (index >= 0 && index < count){
             return elements[index];
