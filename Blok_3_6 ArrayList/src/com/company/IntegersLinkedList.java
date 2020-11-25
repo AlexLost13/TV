@@ -44,14 +44,14 @@ public class IntegersLinkedList {
             current = current.getNext();
         }
     }
-    public void get(int index){
+    public int get(int index){
         Node current = first;
         int number = 0;
         while (number != index -1) {
             current = current.getNext();
             number++;
         }
-        System.out.println(current.getValue());
+        return current.getValue();
     }
 
     public int indexOf(int index){

@@ -15,7 +15,7 @@ public class MainForIntegersLinkedList {
         linkedList.add(10);
         linkedList.setIntersLinkedList();
         System.out.println(linkedList.indexOf(9));
-        linkedList.get(7);
+        System.out.println(linkedList.get(7));
 
         int b = 0;
     }
