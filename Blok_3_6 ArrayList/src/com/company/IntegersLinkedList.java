@@ -65,6 +65,22 @@ public class IntegersLinkedList {
         }
         current.setNext(current.getNext().getNext());
     }
+    public void reverse(){
+        Node current = first;
+        Node temp = null;
+        Node reverseCurrent = null;
+        while (current != null) {
+            temp = current.getNext();
+            current.setNext(reverseCurrent);
+            reverseCurrent = current;
+            first = current;
+            current = temp;
+        }
+        while (reverseCurrent != null) {
+            System.out.println(reverseCurrent.getValue());
+            reverseCurrent = reverseCurrent.getNext();
+        }
+    }
 
     public int indexOf(int index) {
         // реализовать получение элемента

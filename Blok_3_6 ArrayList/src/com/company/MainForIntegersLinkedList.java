@@ -18,6 +18,8 @@ public class MainForIntegersLinkedList {
        //System.out.println(linkedList.get(7));
         linkedList.remove(5);
         linkedList.setIntersLinkedList();
+        System.out.println();
+        linkedList.reverse();
 
         int b = 0;
     }
