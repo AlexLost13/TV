@@ -15,6 +15,37 @@ public class IntegersLinkedList {
     private Node last;
     private int count;
 
+    private static class Node {
+
+        private int value;
+
+        private Node next;
+
+         Node(int value) {
+            this.value = value;
+        }
+
+        public void setNext(Node next) {
+            this.next = next;
+        }
+    }
+
+    class ArrayListIterator {
+        int current;
+
+        ArrayListIterator(){
+            this.current = 0;
+        }
+        boolean hasNext(){
+            return current < count;
+        }
+        int next(){
+            int nextElemetn = first.value;
+            current++;
+            return  nextElemetn;
+        }
+    }
+
     public IntegersLinkedList() {
         this.count = 0;
     }
@@ -23,26 +54,18 @@ public class IntegersLinkedList {
         Node newNode = new Node(element);
         if (first == null) {
             this.first = newNode;
-            this.last = newNode;
         } else {
-/*            Node current = first;
-            while (current.getNext() != null){
-                current.getNext();
-            }
-            current.setNext(newNode);
-
- */
             this.last.setNext(newNode);
-            this.last = newNode;
         }
+        this.last = newNode;
         this.count++;
     }
 
     public void setIntersLinkedList() {
         Node current = first;
         while (current != null) {
-            System.out.println(current.getValue());
-            current = current.getNext();
+            System.out.println(current.value);
+            current = current.next;
         }
     }
 
@@ -50,35 +73,36 @@ public class IntegersLinkedList {
         Node current = first;
         int number = 0;
         while (number != index - 1) {
-            current = current.getNext();
+            current = current.next;
             number++;
         }
-        return current.getValue();
+        return current.value;
     }
 
     public void remove(int index) {
         Node current = first;
         int number = 0;
         while (number != index - 2 && current != null) {
-            current = current.getNext();
+            current = current.next;
             number++;
         }
-        current.setNext(current.getNext().getNext());
+        current.setNext(current.next.next);
     }
-    public void reverse(){
+
+    public void reverse() {
         Node current = first;
         Node temp = null;
         Node reverseCurrent = null;
         while (current != null) {
-            temp = current.getNext();
+            temp = current.next;
             current.setNext(reverseCurrent);
             reverseCurrent = current;
             first = current;
             current = temp;
         }
         while (reverseCurrent != null) {
-            System.out.println(reverseCurrent.getValue());
-            reverseCurrent = reverseCurrent.getNext();
+            System.out.println(reverseCurrent.value);
+            reverseCurrent = reverseCurrent.next;
         }
     }
 
@@ -87,8 +111,8 @@ public class IntegersLinkedList {
         int number = 1;
         Node current = first;
         Node currentIndex = new Node(index);
-        while (currentIndex.getValue() != current.getValue()) {
-            current = current.getNext();
+        while (currentIndex.value != current.value) {
+            current = current.next;
             number++;
         }
         index = number;

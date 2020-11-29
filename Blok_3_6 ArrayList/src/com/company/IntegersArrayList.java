@@ -16,6 +16,22 @@ public class IntegersArrayList {
     private int[] elements;
     private int count;
 
+    class ArrayListIterator {
+        int current;
+
+        ArrayListIterator(){
+            this.current = 0;
+        }
+        boolean hasNext(){
+            return current < count;
+        }
+        int next(){
+            int nextElemetn = elements[current];
+            current++;
+            return  nextElemetn;
+        }
+    }
+
     public IntegersArrayList() {
         this.count = 0;
         this.elements = new int[DEFAULT_ARRAY_SIZE];
