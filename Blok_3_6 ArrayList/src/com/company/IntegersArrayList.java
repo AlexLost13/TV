@@ -31,6 +31,22 @@ public class IntegersArrayList {
             return  nextElemetn;
         }
     }
+    class ArrayListIteratorRever {
+        int current;
+
+        ArrayListIteratorRever(){
+            this.current = 0;
+        }
+        boolean hasNext(){
+            return current < elements.length - count;
+        }
+        int next(){
+            int nextElemetn = elements[current];
+            current++;
+            return  nextElemetn;
+        }
+    }
+
 
     public IntegersArrayList() {
         this.count = 0;

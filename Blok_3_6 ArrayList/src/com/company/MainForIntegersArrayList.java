@@ -17,13 +17,22 @@ public class MainForIntegersArrayList {
         list.add(10, 9);
         list.add(11, 10);
         list.add(12, 11);
-        list.remove(5);
-        list.setElements();
-        list.reverse();
-        list.setElementsRevers();
         IntegersArrayList.ArrayListIterator iterator = list.new ArrayListIterator();
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
         }
+        list.remove(5);
+        IntegersArrayList.ArrayListIterator iterator1 = list.new ArrayListIterator();
+        while (iterator1.hasNext()) {
+            System.out.println(iterator1.next());
+        }
+       // list.setElements();
+        list.reverse();
+        //list.setElementsRevers();
+        IntegersArrayList.ArrayListIteratorRever iterator2 = list.new ArrayListIteratorRever();
+        while (iterator2.hasNext()) {
+            System.out.println(iterator2.next());
+        }
+
     }
 }

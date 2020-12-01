@@ -13,13 +13,13 @@ public class MainForIntegersLinkedList {
         linkedList.add(8);
         linkedList.add(9);
         linkedList.add(10);
-        linkedList.remove(5);
-        linkedList.setIntersLinkedList();
-        System.out.println();
-        linkedList.reverse();
         IntegersLinkedList.ArrayListIterator iterator = linkedList.new ArrayListIterator();
         while (iterator.hasNext()){
             System.out.println(iterator.next());
         }
+        linkedList.remove(5);
+       // linkedList.setIntersLinkedList();
+        System.out.println();
+        //linkedList.reverse();
     }
 }
