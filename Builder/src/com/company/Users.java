@@ -4,13 +4,13 @@ public class Users {
     private String firstName;
     private String lastName;
     private int age;
-    private String adress;
+    private String address;
 
     private Users(Builder builder) {
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
         this.age = builder.age;
-        this.adress = builder.address;
+        this.address = builder.address;
     }
 
     static class Builder {
@@ -34,8 +34,8 @@ public class Users {
             return this;
         }
 
-        public Builder addAddress(String adress) {
-            this.address = adress;
+        public Builder addAddress(String address) {
+            this.address = address;
             return this;
         }
 

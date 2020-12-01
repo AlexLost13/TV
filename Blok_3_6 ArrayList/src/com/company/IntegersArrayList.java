@@ -19,35 +19,21 @@ public class IntegersArrayList {
     class ArrayListIterator {
         int current;
 
-        ArrayListIterator(){
+        ArrayListIterator() {
             this.current = 0;
         }
-        boolean hasNext(){
+
+        boolean hasNext() {
             return current < count;
         }
-        int next(){
+
+        int next() {
             int nextElemetn = elements[current];
             current++;
-            return  nextElemetn;
+            return nextElemetn;
         }
     }
-    class ArrayListIteratorRever {
-        int current;
-
-        ArrayListIteratorRever(){
-            this.current = 0;
-        }
-        boolean hasNext(){
-            return current < elements.length - count;
-        }
-        int next(){
-            int nextElemetn = elements[current];
-            current++;
-            return  nextElemetn;
-        }
-    }
-
-
+    
     public IntegersArrayList() {
         this.count = 0;
         this.elements = new int[DEFAULT_ARRAY_SIZE];
@@ -59,19 +45,16 @@ public class IntegersArrayList {
             count++;
         } else {
             int newArray[] = new int[elements.length + (elements.length / 2)];
-            for (int j = 0; j < elements.length; j++){
+            for (int j = 0; j < elements.length; j++) {
                 newArray[j] = elements[j];
             }
-            for(int i = index; i < newArray.length; i ++){
+            for (int i = index; i < newArray.length; i++) {
                 newArray[index] = element;
             }
             count++;
             this.elements = newArray;
             // если выходим за пределы массива, то надо создать новый уже увеличеный в 1.5 раза
-        } /*else {
-            System.out.println("Array out of bounds");
-        }*/
-
+        }
     }
 
     public void remove(int index) {
@@ -87,40 +70,10 @@ public class IntegersArrayList {
 
     public void reverse() {
         int temp;
-        for (int i = 0; i < elements.length / 2; i++) {
-            temp = elements[elements.length - i - 1];
-            elements[elements.length  - i - 1] = elements[i];
+        for (int i = 0; i < count / 2; i++) {
+            temp = elements[count - 1 - i];
+            elements[count - 1 - i] = elements[i];
             elements[i] = temp;
         }
     }
-
-    public void setElementsRevers() {
-        for (int i = elements.length - count; i < elements.length; i++) {
-            System.out.println(elements[i]);
-        }
-    }
-
-    public void setElements() {
-        for (int i = 0; i < count; i++) {
-            System.out.println(elements[i]);
-        }
-    }
-
-    /* public void add(int element) {
-        if (count < this.elements.length) {
-            this.elements[count] = element;
-            count++;
-        }else {
-            System.out.println("Array out of bounds");
-        }
-    }
-    public  int get(int index) {
-        if (index >= 0 && index < count){
-            return elements[index];
-        }else {
-            System.out.println(" Index out of range");
-            return -1;
-        }
-    }*/
-
 }

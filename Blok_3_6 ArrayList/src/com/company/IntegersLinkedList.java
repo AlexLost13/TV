@@ -31,17 +31,18 @@ public class IntegersLinkedList {
     }
 
     class ArrayListIterator {
-        int current;
+        Node current;
 
         ArrayListIterator(){
-            this.current = 0;
+            this.current = first;
         }
         boolean hasNext(){
-            return current < count;
+            return current != null;
         }
         int next(){
-            int nextElemetn = first.value;
-            current++;
+            int nextElemetn = current.value;
+
+            current = current.next;
             return  nextElemetn;
         }
     }
@@ -100,10 +101,10 @@ public class IntegersLinkedList {
             first = current;
             current = temp;
         }
-        while (reverseCurrent != null) {
+       /* while (reverseCurrent != null) {
             System.out.println(reverseCurrent.value);
             reverseCurrent = reverseCurrent.next;
-        }
+        }*/
     }
 
     public int indexOf(int index) {

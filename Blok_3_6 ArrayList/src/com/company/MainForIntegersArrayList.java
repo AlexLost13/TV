@@ -26,13 +26,10 @@ public class MainForIntegersArrayList {
         while (iterator1.hasNext()) {
             System.out.println(iterator1.next());
         }
-       // list.setElements();
         list.reverse();
-        //list.setElementsRevers();
-        IntegersArrayList.ArrayListIteratorRever iterator2 = list.new ArrayListIteratorRever();
+        IntegersArrayList.ArrayListIterator iterator2 = list.new ArrayListIterator();
         while (iterator2.hasNext()) {
             System.out.println(iterator2.next());
         }
-
     }
 }
