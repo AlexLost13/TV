@@ -19,12 +19,12 @@ public class Users {
         private int age;
         private String address;
 
-        public Builder addFirstName(String firstName) {
+        public Builder FirstName(String firstName) {
             this.firstName = firstName;
             return this;
         }
 
-        public Builder addLastName(String lastName) {
+        public Builder LastName(String lastName) {
             this.lastName = lastName;
             return this;
         }

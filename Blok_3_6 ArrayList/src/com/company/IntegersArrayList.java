@@ -33,7 +33,7 @@ public class IntegersArrayList {
             return nextElemetn;
         }
     }
-    
+
     public IntegersArrayList() {
         this.count = 0;
         this.elements = new int[DEFAULT_ARRAY_SIZE];
@@ -47,8 +47,6 @@ public class IntegersArrayList {
             int newArray[] = new int[elements.length + (elements.length / 2)];
             for (int j = 0; j < elements.length; j++) {
                 newArray[j] = elements[j];
-            }
-            for (int i = index; i < newArray.length; i++) {
                 newArray[index] = element;
             }
             count++;
@@ -60,10 +58,7 @@ public class IntegersArrayList {
     public void remove(int index) {
         int i = index;
         for (; i < elements.length - 1; i++) {
-            int temp = 0;
-            temp = elements[i + 1];
-            elements[i + 1] = elements[i];
-            elements[i] = temp;
+            elements[i] = elements[i + 1];
         }
         count--;
     }
