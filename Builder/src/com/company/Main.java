@@ -4,9 +4,12 @@ public class Main {
 
     public static void main(String[] args) {
         // write your code here
-        Users user = new Users.Builder()
-                .FirstName("Marsel")
-                .LastName("Sidikov")
+        User user = User.Builder.newBuilder()
+                .firstName("Marsel")
+                .lastName("Sidikov")
                 .build();
+        System.out.println(user.firstName);
+
+
     }
 }
