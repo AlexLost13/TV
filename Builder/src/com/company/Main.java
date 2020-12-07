@@ -9,6 +9,7 @@ public class Main {
                 .lastName("Sidikov")
                 .build();
         System.out.println(user.firstName);
+        System.out.println(user.lastName);
 
 
     }

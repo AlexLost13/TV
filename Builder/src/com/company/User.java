@@ -8,7 +8,6 @@ public class User {
 
 
     private User(Builder builder) {
-        Builder.newBuilder();
         this.firstName = builder.getFirstName();
         this.lastName = builder.getLastName();
         this.age = builder.getAge();
