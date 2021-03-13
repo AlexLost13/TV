@@ -15,7 +15,8 @@ public class Main {
 //        ex03 week = new ex03();
 //        ex003_1 week = new ex003_1();
 //        ex004 a = new ex004();
-        ex005 e = new ex005();
-        e.setTable();
+//        ex005 e = new ex005();
+//        e.setTable();
+        ex005 ex = new ex005();
     }
 }
